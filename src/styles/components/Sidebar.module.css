@@ -1,0 +1,15 @@
+.list-item-icon {
+    min-width: auto;
+    display: flex;
+    align-items: center;
+}
+
+.list-item-text {
+    margin-left: 0.4rem;
+}
+
+
+.list-item-button {
+    margin-bottom: 1.3rem;
+    position: relative;
+}

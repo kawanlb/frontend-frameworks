@@ -1,0 +1,41 @@
+body {
+  background-color: #FAFAFA; 
+  color: rgb(var(--foreground-rgb));
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 210px; 
+  background-color: #FFF; 
+  flex-shrink: 0;
+}
+
+.main-content {
+  flex-grow: 1; 
+  padding: 20px; 
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
