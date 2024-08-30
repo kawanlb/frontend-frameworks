@@ -21,7 +21,7 @@ export default function Sidebar() {
     ];
 
     return (
-        <Drawer variant="permanent">
+        <Drawer variant="permanent" className={styles.drawer}>
             <UserProfile user={{ name: 'Fulano Exemplo', email: 'fulano@exemplo.com' }} />
             <List>
                 {menuItems.map((item) => (
