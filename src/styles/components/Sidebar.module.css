@@ -1,3 +1,5 @@
+
+
 .list-item-icon {
     min-width: auto;
     display: flex;
@@ -8,8 +10,29 @@
     margin-left: 0.4rem;
 }
 
-
 .list-item-button {
     margin-bottom: 1.3rem;
     position: relative;
+}
+
+
+@media (max-width: 768px) {
+
+    .list-item-button {
+        margin-bottom: 0.8rem; 
+    }
+}
+
+@media (max-width: 480px) {
+
+    .list-item-button {
+        margin-bottom: 0.4rem; 
+    }
+}
+
+@media (min-width: 1200px) {
+
+    .list-item-button {
+        margin-bottom: 2rem; 
+    }
 }

@@ -10,15 +10,11 @@ body {
 }
 
 .sidebar {
-  width: 210px; 
-  background-color: #FFF; 
-  flex-shrink: 0;
+  width: 140px; 
+  background-color: #FFFF; 
 }
 
-.main-content {
-  flex-grow: 1; 
-  padding: 20px; 
-}
+
 
 @tailwind base;
 @tailwind components;
