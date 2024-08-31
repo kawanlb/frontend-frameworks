@@ -9,15 +9,10 @@ body {
   min-height: 100vh;
 }
 
-.sidebar {
-  width: 210px; 
-  background-color: #FFF; 
-  flex-shrink: 0;
-}
-
 .main-content {
   flex-grow: 1; 
-  padding: 20px; 
+  margin-left: 13rem;
+  padding: 20px;
 }
 
 @tailwind base;
