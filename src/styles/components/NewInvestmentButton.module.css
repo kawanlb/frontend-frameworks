@@ -1,0 +1,24 @@
+.newInvestmentButton {
+    background-color: #5E64F2;
+    color: #F0F0F0;
+    font-size: 1rem; 
+    padding: 0.75rem 1.5rem; 
+    border-radius: 0.5rem; 
+    font-weight: bold;
+    text-transform: uppercase; 
+    transition: background-color 0.3s ease; 
+  }
+  
+  .newInvestmentButton:hover {
+    background-color: #5559db; 
+  }
+  
+  .newInvestmentButton:active {
+    background-color: #553c9a; 
+  }
+  
+  .newInvestmentButton:focus {
+    outline: none; 
+    box-shadow: 0 0 0 3px rgba(128, 90, 213, 0.6); 
+  }
+  

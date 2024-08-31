@@ -2,6 +2,7 @@ import Sidebar from '../components/Sidebar';
 import { Inter } from "next/font/google";
 import '../styles/globals.css';
 import '../styles/components/Sidebar.module.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const inter = Inter({ subsets: ["latin"] });
 
