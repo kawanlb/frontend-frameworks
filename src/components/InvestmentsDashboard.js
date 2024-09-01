@@ -4,6 +4,7 @@ import StatsCard from './StatsCard';
 import InvestmentChart from './InvestimentChart';
 import NewInvestmentButton from './NewInvestmentButton';
 import styles from '../styles/components/InvestmentDashboard.module.css';
+import '../styles/globals.css';
 
 export default function InvestmentsDashboard({ data }) {
   const totalInvestido = data.reduce((sum, investment) => sum + investment.valor_investido, 0);
@@ -15,21 +16,27 @@ export default function InvestmentsDashboard({ data }) {
   };
 
   return (
-    <div className={styles.dashboardContainer}>
-      <div className={styles.header}>
-        <h2>Investimentos</h2>
-        <NewInvestmentButton />
-      </div>
-      <div className={styles.content}>
-        <ProductsList products={data} />
-        <div className={styles.statsAndChart}>
-          <div className={styles.stats}>
+    <>
+      
+      <div className={styles.dashboardContainer}>
+        
+        <div className={styles.header}>
+        <h2 className="titulo">Investimentos</h2>
+          <NewInvestmentButton />
+        </div>
+        <div className={styles.content}>
+          <div className={styles.leftPane}>
+            <ProductsList products={data} />
+          </div>
+          <div className={styles.rightPane}>
             <StatsCard title="Total Ganho" value={totalGanho} icon="money" />
             <StatsCard title="Total Investido" value={totalInvestido} icon="invest" />
           </div>
+        </div>
+        <div className={styles.chartContainer}>
           <InvestmentChart chartData={chartData} />
         </div>
       </div>
-    </div>
+    </>
   );
 }

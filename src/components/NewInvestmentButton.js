@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export default function NewInvestmentButton() {
   return (
-    <Link href="/add-investment" passHref>
+    <Link href="/investimentos/adicionar" passHref>
       <Button colorScheme="purple" className={styles.newInvestmentButton}>
         Novo Investimento
       </Button>
