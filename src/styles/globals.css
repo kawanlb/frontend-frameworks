@@ -11,8 +11,8 @@ body {
 
 .main-content {
   flex-grow: 1; 
-  margin-left: 13rem;
-  padding: 20px;
+  margin-left: 7rem;
+  padding-top: 20px;
 }
 
 @tailwind base;
