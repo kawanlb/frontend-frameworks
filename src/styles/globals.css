@@ -18,7 +18,7 @@ body {
 .titulo{
   font-size: 1.5rem; 
   color: #6F6F6F;
-  margin: 1rem 1rem;
+  margin-left: 1rem;
 }
 
 @tailwind base;

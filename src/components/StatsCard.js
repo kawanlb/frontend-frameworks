@@ -1,13 +1,17 @@
 "use client";
 import React from 'react';
 import styles from '../styles/components/StatsCard.module.css';
-import { Box, Icon } from '@chakra-ui/react';
-import { FaDollarSign } from 'react-icons/fa';
+import { Box } from '@chakra-ui/react';
+
+// Importando as imagens
+import EarningImage from '/public/earning.png';
+import AssetManagementImage from '/public/asset-management.png';
 
 export default function StatsCard({ title, value, icon }) {
+
   const icons = {
-    money: <FaDollarSign />,
-    invest: <Icon as={FaDollarSign} />,
+    money: <img src={EarningImage.src} alt="Earning" style={{ width: '40px', height: '40px' }} />,
+    invest: <img src={AssetManagementImage.src} alt="Asset Management" style={{ width: '40px', height: '40px' }} />,
   };
 
   return (
