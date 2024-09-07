@@ -8,8 +8,8 @@
 }
 
 .productsList h3 {
-  font-size: 1.25rem;
-  margin-bottom: 16px;
+  font-size: 1.20rem;
+  margin-bottom: 10px;
   color: #333; 
 }
 
@@ -27,7 +27,7 @@
 
 .productItem span {
   flex: 1;
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #495057; 
 }
 
