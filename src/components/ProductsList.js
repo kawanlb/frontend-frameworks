@@ -13,7 +13,12 @@ export default function ProductsList({ products }) {
         return (
           <div className={styles.productItem} key={product.id}>
             <span>{product.tipo_investimento} - {product.instituicao}</span>
-            <ProgressBar now={percentage} label={`${percentage}%`} />
+
+            <div className={styles.progressContainer}>
+              <span className={styles.percentageLabel}>{percentage}%</span>
+              <ProgressBar now={percentage} className={styles.progress} />
+            </div>
+
             <span className={styles.productValue}>R$ {product.valor_investido.toFixed(2)}</span>
           </div>
         );
