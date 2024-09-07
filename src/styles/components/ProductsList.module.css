@@ -12,6 +12,9 @@
   margin-bottom: 10px;
   color: #333; 
 }
+.editButton , .deleteButton  {
+  margin-left: 0.8rem;
+}
 
 .productItem {
   display: flex;

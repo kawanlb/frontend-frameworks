@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../styles/AddInvestment.module.css';
+import styles from '../styles/InvestmentForm.module.css';
 
 export default function ButtonInvestment({ label, onClick, type = 'button', className }) {
   return (
