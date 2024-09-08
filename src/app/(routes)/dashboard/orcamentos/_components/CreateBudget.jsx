@@ -44,7 +44,7 @@ function CreateBudget({ refreshData }) {
     setAmount("");
     setEmojiIcon("😀");
 
-    toast("New Budget Created!");
+    toast("Novo Orçamento Criado");
 
     // Optionally call refreshData if you need to refresh the list
     if (refreshData) {
@@ -62,12 +62,12 @@ function CreateBudget({ refreshData }) {
             cursor-pointer hover:shadow-md"
           >
             <h2 className="text-3xl">+</h2>
-            <h2>Create New Budget</h2>
+            <h2>Crie Um Novo Orçamento</h2>
           </div>
         </DialogTrigger>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Create New Budget</DialogTitle>
+            <DialogTitle>Crie Um Novo Orçamento</DialogTitle>
             <DialogDescription>
               <div className="mt-5">
                 <Button
@@ -87,18 +87,18 @@ function CreateBudget({ refreshData }) {
                   />
                 </div>
                 <div className="mt-2">
-                  <h2 className="text-black font-medium my-1">Budget Name</h2>
+                  <h2 className="text-black font-medium my-1">Nome do Orçamento</h2>
                   <Input
-                    placeholder="e.g. Home Decor"
+                    placeholder="ex. Decoração da Casa de Mainha"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                   />
                 </div>
                 <div className="mt-2">
-                  <h2 className="text-black font-medium my-1">Budget Amount</h2>
+                  <h2 className="text-black font-medium my-1">Valor do Orçamento</h2>
                   <Input
                     type="number"
-                    placeholder="e.g. 5000$"
+                    placeholder="ex. R$12.00"
                     value={amount}
                     onChange={(e) => setAmount(e.target.value)}
                   />
@@ -113,7 +113,7 @@ function CreateBudget({ refreshData }) {
                 onClick={() => onCreateBudget()}
                 className="mt-5 w-full rounded-full"
               >
-                Create Budget
+                Criar Orçamento 
               </Button>
             </DialogClose>
           </DialogFooter>
