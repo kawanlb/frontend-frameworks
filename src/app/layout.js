@@ -4,6 +4,7 @@ import { Inter, Outfit } from "next/font/google";
 import "../styles/globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 
+
 const outfit = Outfit({ subsets: ["latin"] });
 
 export const metadata = {

@@ -1,5 +1,5 @@
 //favor não alterar
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Image from "next/image";
 import Header from "./_components/Header";
 import Hero from "./_components/Hero";
