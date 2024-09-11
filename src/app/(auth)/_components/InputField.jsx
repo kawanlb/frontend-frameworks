@@ -15,4 +15,4 @@ export default function InputField({ label, type, value, onChange, id }) {
       </div>
     );
   }
-  
+    
