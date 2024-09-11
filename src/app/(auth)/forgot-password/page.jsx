@@ -1,16 +1,11 @@
-import SignUpForm from "../../_components/SignupForm";
+// pages/forgot-password.js
+import ForgotPasswordForm from '../_components/ForgotPasswordForm';
 
-export default function Page() {
+export default function ForgotPasswordPage() {
   return (
     <section className="bg-white">
       <div className="lg:grid lg:min-h-screen lg:grid-cols-12">
         <section className="relative flex h-32 items-end bg-indigo-500 lg:col-span-5 lg:h-full xl:col-span-6">
-          <img
-            alt=""
-            src="/sideimage.svg"
-            className="absolute left-1/2 top-1/2 h-3/5 w-3/5 object-cover opacity-80 transform -translate-x-1/2 -translate-y-1/2"
-          />
-
           {/* Círculos e losangos semitransparentes */}
           <div className="absolute top-16 left-44 h-36 w-36 bg-white opacity-20 rounded-full"></div>
           <div className="absolute bottom-32 right-10 h-24 w-24 bg-white opacity-20 rounded-full"></div>
@@ -23,15 +18,12 @@ export default function Page() {
           <div className="max-w-xl lg:max-w-3xl">
             <div>
               <h1 className="text-3xl font-bold text-gray-900 sm:text-4xl">
-                Sign Up
+                Forgot Password
               </h1>
               <p className="mt-2 text-sm text-gray-600">
-                Already have an account?{' '}
-                <a href="/sign-in" className="font-medium text-indigo-600 hover:text-indigo-500">
-                  Log in
-                </a>
+                Enter your email address to receive a password reset link.
               </p>
-              <SignUpForm />
+              <ForgotPasswordForm />
             </div>
           </div>
         </main>

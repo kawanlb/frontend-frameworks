@@ -1,6 +1,7 @@
   "use client";
-
-  import React, { useState } from "react";
+  import { Button } from "@/components/ui/button";
+  import { PenBox } from "lucide-react";
+  import React, { useEffect, useState } from "react";
   import {
     Dialog,
     DialogClose,
@@ -12,76 +13,56 @@
     DialogTrigger,
   } from "@/components/ui/dialog";
   import EmojiPicker from "emoji-picker-react";
-  import { Button } from "@/components/ui/button";
-  import { Input } from "@/components/ui/input";
-  // import { db } from "@/utils/dbConfig"; // Comentado para dados falsos
-  // import { Budgets } from "@/utils/schema"; // Comentado para dados falsos
   import { useUser } from "@clerk/nextjs";
+  import { Input } from "@/components/ui/input";
+  import { db } from "@/utils/dbConfig";
+  import { Budgets } from "@/utils/schema";
+  import { eq } from "drizzle-orm";
   import { toast } from "sonner";
-
-  // Função simulada para criar orçamento
-  const createBudgetMock = async (name, amount, createdBy, icon) => {
-    // Simula uma resposta de banco de dados
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve({ insertedId: Math.floor(Math.random() * 1000) });
-      }, 500);
-    });
-  };
-
-  function CreateBudget({ refreshData }) {
-    const [emojiIcon, setEmojiIcon] = useState("😀");
+  function EditBudget({ budgetInfo, refreshData }) {
+    const [emojiIcon, setEmojiIcon] = useState(budgetInfo?.icon);
     const [openEmojiPicker, setOpenEmojiPicker] = useState(false);
 
-    const [name, setName] = useState("");
-    const [amount, setAmount] = useState("");
+    const [name, setName] = useState();
+    const [amount, setAmount] = useState();
 
     const { user } = useUser();
 
-    /**
-     * Used to Create New Budget
-     */
-    const onCreateBudget = async () => {
-      // const result = await db
-      //   .insert(Budgets)
-      //   .values({
-      //     name: name,
-      //     amount: amount,
-      //     createdBy: user?.primaryEmailAddress?.emailAddress,
-      //     icon: emojiIcon,
-      //   })
-      //   .returning({ insertedId: Budgets.id });
-
-      // Dados falsos simulando a criação do orçamento
-      const result = await createBudgetMock(
-        name,
-        amount,
-        user?.primaryEmailAddress?.emailAddress,
-        emojiIcon
-      );
+    useEffect(() => {
+      if (budgetInfo) {
+        setEmojiIcon(budgetInfo?.icon);
+        setAmount(budgetInfo.amount);
+        setName(budgetInfo.name);
+      }
+    }, [budgetInfo]);
+    const onUpdateBudget = async () => {
+      const result = await db
+        .update(Budgets)
+        .set({
+          name: name,
+          amount: amount,
+          icon: emojiIcon,
+        })
+        .where(eq(Budgets.id, budgetInfo.id))
+        .returning();
 
       if (result) {
         refreshData();
-        toast("New Budget Created!");
+        toast("Budget Updated!");
       }
     };
-
     return (
       <div>
         <Dialog>
           <DialogTrigger asChild>
-            <div
-              className="bg-slate-100 p-10 rounded-2xl
-              items-center flex flex-col border-2 border-dashed
-              cursor-pointer hover:shadow-md"
-            >
-              <h2 className="text-3xl">+</h2>
-              <h2>Create New Budget</h2>
-            </div>
+            <Button className="flex space-x-2 gap-2 rounded-full">
+              {" "}
+              <PenBox className="w-4" /> Editar
+            </Button>
           </DialogTrigger>
           <DialogContent>
             <DialogHeader>
-              <DialogTitle>Create New Budget</DialogTitle>
+              <DialogTitle>Atualizar Orçamento</DialogTitle>
               <DialogDescription>
                 <div className="mt-5">
                   <Button
@@ -101,16 +82,18 @@
                     />
                   </div>
                   <div className="mt-2">
-                    <h2 className="text-black font-medium my-1">Budget Name</h2>
+                    <h2 className="text-black font-medium my-1">Nome do Orçamento</h2>
                     <Input
                       placeholder="e.g. Home Decor"
+                      defaultValue={budgetInfo?.name}
                       onChange={(e) => setName(e.target.value)}
                     />
                   </div>
                   <div className="mt-2">
-                    <h2 className="text-black font-medium my-1">Budget Amount</h2>
+                    <h2 className="text-black font-medium my-1">Valor do Orçamento</h2>
                     <Input
                       type="number"
+                      defaultValue={budgetInfo?.amount}
                       placeholder="e.g. 5000$"
                       onChange={(e) => setAmount(e.target.value)}
                     />
@@ -122,10 +105,10 @@
               <DialogClose asChild>
                 <Button
                   disabled={!(name && amount)}
-                  onClick={() => onCreateBudget()}
+                  onClick={() => onUpdateBudget()}
                   className="mt-5 w-full rounded-full"
                 >
-                  Create Budget
+                  Update Budget
                 </Button>
               </DialogClose>
             </DialogFooter>
@@ -135,4 +118,4 @@
     );
   }
 
-  export default CreateBudget;
+  export default EditBudget;
