@@ -1,7 +1,7 @@
 "use client"; 
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation'; 
-import InvestmentForm from '../_components/InvestmentForm';
+import InvestmentForm from '../../investimentos/_components/InvestmentFormx';
 
 export default function EditarInvestimento() {
   const router = useRouter(); 

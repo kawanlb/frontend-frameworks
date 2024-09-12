@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Home, BarChart2, Wallet, FileText, PieChart } from "lucide-react";
-import { UserButton } from "@clerk/nextjs";
 
 export default function Sidebar({ onToggle }) {
   const [isSidebarVisible, setIsSidebarVisible] = useState(true);
@@ -16,7 +15,7 @@ export default function Sidebar({ onToggle }) {
   const menuList = [
     { id: 1, name: "Dashboard", icon: Home, path: "/dashboard" },
     { id: 2, name: "Investimentos", icon: BarChart2, path: "/dashboard/investimentos" },
-    { id: 3, name: "Orçamentos", icon: Wallet, path: "/dashboard/orcamentos" },
+    { id: 3, name: "Orçamentos", icon: Wallet, path: "/dashboard/orcamento" },
     { id: 4, name: "Transações", icon: FileText, path: "/dashboard/transacoes" },
     { id: 5, name: "Relatórios", icon: PieChart, path: "/dashboard/relatorios" },
   ];
@@ -42,7 +41,7 @@ export default function Sidebar({ onToggle }) {
         ))}
       </div>
       <div className={`fixed bottom-10 p-5 flex items-center gap-2 transition-all ${isSidebarVisible ? "left-0" : "left-16"} w-full`}>
-        <UserButton />
+        {/* Componente de usuário removido */}
         {isSidebarVisible && <span>Minha conta</span>}
       </div>
     </div>

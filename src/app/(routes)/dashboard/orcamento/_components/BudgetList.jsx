@@ -2,10 +2,6 @@
 
 import React, { useEffect, useState } from 'react';
 import CreateBudget from './CreateBudget';
-// import { db } from '@/utils/dbConfig'; // Comentado para dados falsos
-// import { desc, eq, getTableColumns, sql } from 'drizzle-orm'; // Comentado para dados falsos
-// import { Budgets, Expenses } from '@/utils/schema'; // Comentado para dados falsos
-import { useUser } from '@clerk/nextjs';
 import BudgetItem from './BudgetItem';
 
 // Dados falsos para simulação
@@ -33,33 +29,11 @@ const mockBudgetList = [
 
 function BudgetList() {
   const [budgetList, setBudgetList] = useState([]);
-  const { user } = useUser();
 
   useEffect(() => {
-    if (user) {
-      // getBudgetList(); // Comentado para dados falsos
-      setBudgetList(mockBudgetList); // Dados falsos usados no lugar da chamada ao banco de dados
-    }
-  }, [user]);
-
-  /**
-   * used to get budget List
-   */
-  // const getBudgetList = async () => {
-  //   const result = await db
-  //     .select({
-  //       ...getTableColumns(Budgets),
-  //       totalSpend: sql`sum(${Expenses.amount})`.mapWith(Number),
-  //       totalItem: sql`count(${Expenses.id})`.mapWith(Number),
-  //     })
-  //     .from(Budgets)
-  //     .leftJoin(Expenses, eq(Budgets.id, Expenses.budgetId))
-  //     .where(eq(Budgets.createdBy, user?.primaryEmailAddress?.emailAddress))
-  //     .groupBy(Budgets.id)
-  //     .orderBy(desc(Budgets.id));
-  //
-  //   setBudgetList(result);
-  // };
+    // Simula a obtenção de orçamentos
+    setBudgetList(mockBudgetList); // Dados falsos usados no lugar da chamada ao banco de dados
+  }, []);
 
   return (
     <div className="mt-7">

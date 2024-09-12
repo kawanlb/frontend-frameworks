@@ -1,0 +1,38 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model tb_transactions {
+  id               String    @id @db.Uuid
+  category         String    @db.VarChar(150)
+  created_at       DateTime  @db.Timestamp(6)
+  created_by       String?   @db.VarChar(255)
+  date_payment     DateTime  @db.Date
+  description      String    @db.VarChar(200)
+  status           String    @db.VarChar(8)
+  type_transaction String    @db.VarChar(10)
+  updated_at       DateTime? @db.Timestamp(6)
+  updated_by       String?   @db.VarChar(255)
+  value            Float
+  user_id          String    @db.Uuid
+  tb_users         tb_users  @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk4jn3g5lu0mr1rhsacyt559med")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model tb_users {
+  id              String            @id @db.Uuid
+  balance         Float             @db.Real
+  created_at      DateTime?         @db.Timestamp(6)
+  email           String            @unique(map: "ukgrd22228p1miaivbn9yg178pm") @db.VarChar(100)
+  name            String            @db.VarChar(200)
+  password        String            @db.VarChar(200)
+  role            String            @db.VarChar(25)
+  updated_at      DateTime?         @db.Timestamp(6)
+  tb_transactions tb_transactions[]
+}

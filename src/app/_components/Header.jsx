@@ -2,11 +2,13 @@
 import React from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { useUser, UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 
 function Header() {
-  const { user, isSignedIn } = useUser();
+  // Removido o uso do Clerk, agora você pode substituir por lógica própria de autenticação.
+  const user = null; // Defina a lógica para o usuário autenticado
+  const isSignedIn = false; // Controle o estado de autenticação aqui
+
   return (
     <div className="p-3 flex justify-between items-center border shadow-sm">
       <div className="flex flex-row items-center hidden md:flex">
@@ -26,7 +28,11 @@ function Header() {
             </Button>
           </Link>
         )}
-        {isSignedIn && <UserButton />}
+        {isSignedIn && (
+          <Button className="rounded-full text-sm py-1 px-3">
+            Bem-vindo, {user?.name || "Usuário"} {/* Lógica de exibição do nome */}
+          </Button>
+        )}
       </div>
     </div>
   );
