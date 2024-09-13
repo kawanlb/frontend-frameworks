@@ -1,6 +1,5 @@
-//favor não alterar
-import 'bootstrap/dist/css/bootstrap.min.css'; // Importa o CSS do Bootstrapimport Header from "./_components/Header";
 import Hero from "./_components/Hero";
+import Header from './_components/Header';
 
 export default function Home() {
   return (
