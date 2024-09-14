@@ -14,10 +14,16 @@ import {
 import EmojiPicker from "emoji-picker-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import {
+  Select,
+  SelectTrigger,
+  SelectContent,
+  SelectItem,
+} from "@/components/ui/select"; // Importa o Select da pasta ui
 import { toast } from "sonner";
 
 // Função simulada para criar orçamento
-const createBudgetMock = async (name, amount, createdBy, icon) => {
+const createBudgetMock = async (name, amount, createdBy, icon, category) => {
   // Simula uma resposta de banco de dados
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -32,13 +38,13 @@ function CreateBudget({ refreshData }) {
 
   const [nome, setNome] = useState("");
   const [valor, setValor] = useState("");
+  const [categoria, setCategoria] = useState("");
 
   /**
    * Usado para criar novo orçamento
    */
   const onCreateBudget = async () => {
-    // Dados falsos simulando a criação do orçamento
-    const result = await createBudgetMock(nome, valor, "user@example.com", emojiIcon);
+    const result = await createBudgetMock(nome, valor, "user@example.com", emojiIcon, categoria);
 
     if (result) {
       refreshData();
@@ -95,13 +101,28 @@ function CreateBudget({ refreshData }) {
                     onChange={(e) => setValor(e.target.value)}
                   />
                 </div>
+                <div className="mt-2">
+                  <h2 className="text-black font-medium my-1">Categoria</h2>
+                  <Select onValueChange={(value) => setCategoria(value)} value={categoria}>
+                    <SelectTrigger>
+                      {categoria || "Selecione uma categoria"}
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="Casa">Casa</SelectItem>
+                      <SelectItem value="Educação">Educação</SelectItem>
+                      <SelectItem value="Saúde">Saúde</SelectItem>
+                      <SelectItem value="Transporte">Transporte</SelectItem>
+                      <SelectItem value="Lazer">Lazer</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
               </div>
             </DialogDescription>
           </DialogHeader>
           <DialogFooter className="sm:justify-start">
             <DialogClose asChild>
               <Button 
-                disabled={!(nome && valor)}
+                disabled={!(nome && valor && categoria)}
                 onClick={() => onCreateBudget()}
                 className="mt-5 w-full rounded-full"
               >
