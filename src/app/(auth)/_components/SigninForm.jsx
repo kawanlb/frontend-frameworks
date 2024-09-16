@@ -67,7 +67,7 @@ export default function SigninForm() {
           />
           <div className="flex flex-col sm:flex-row items-center justify-between">
             <Button label="Entrar" />
-            <CustomLink href="/forgot-password" label="Esqueceu sua senha?" />
+            <CustomLink href="/change-password" label="Esqueceu sua senha?" />
           </div>
         </form>
       </div>
