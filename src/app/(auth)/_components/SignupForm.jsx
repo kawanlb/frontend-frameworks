@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import axiosInstance from "../../api/axios"; // Importa a instância do axios configurada
+import axiosInstance from "../../../api/AxiosInstance"; // Importa a instância do axios configurada
 import InputField from "./InputField";
 import Button from "./Button";
 import FormContainer from "./FormContainer";
