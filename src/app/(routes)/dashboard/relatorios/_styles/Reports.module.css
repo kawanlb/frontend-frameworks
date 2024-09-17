@@ -39,10 +39,15 @@
 .gastosPorCategoria,
 .pagamentosEmAtraso {
     width: 100%;
-    margin-right: 20px;
+    margin-bottom: 20px;
     background-color: #fff;
     padding: 34px;
     border-radius: 28px;
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
     z-index: 1;
+}
+
+.gastosPorCategoria {
+
+    margin-right: 20px;
 }
