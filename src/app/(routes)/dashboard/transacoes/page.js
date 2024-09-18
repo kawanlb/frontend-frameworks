@@ -45,7 +45,7 @@ const App = () => {
 
   return (
     <Grid container>      
-      <Grid item xs={18}>
+      <Grid item xs={0}>
         <Container>
           <Header 
             currentMonth={currentMonth}
