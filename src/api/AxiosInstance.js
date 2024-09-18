@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Configurar a instância do axios
 const axiosInstance = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL,
+  baseURL: process.env.NEXT_PUBLIC_API_BASE_URL, // Certifique-se de que o nome da variável está correto
   timeout: 10000, // Tempo de timeout das requisições em milissegundos
   headers: {
     'Content-Type': 'application/json',

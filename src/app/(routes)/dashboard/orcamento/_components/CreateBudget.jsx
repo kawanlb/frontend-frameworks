@@ -19,18 +19,8 @@ import {
   SelectTrigger,
   SelectContent,
   SelectItem,
-} from "@/components/ui/select"; // Importa o Select da pasta ui
+} from "@/components/ui/select";
 import { toast } from "sonner";
-
-// Função simulada para criar orçamento
-const createBudgetMock = async (name, amount, createdBy, icon, category) => {
-  // Simula uma resposta de banco de dados
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve({ insertedId: Math.floor(Math.random() * 1000) });
-    }, 500);
-  });
-};
 
 function CreateBudget({ refreshData }) {
   const [emojiIcon, setEmojiIcon] = useState("😀");
@@ -43,13 +33,38 @@ function CreateBudget({ refreshData }) {
   /**
    * Usado para criar novo orçamento
    */
-  const onCreateBudget = async () => {
-    const result = await createBudgetMock(nome, valor, "user@example.com", emojiIcon, categoria);
+  const onCreateBudget = () => {
+    // Cria um novo orçamento
+    const newBudget = {
+      id: Date.now(), // Usar timestamp como ID único
+      name: nome,
+      amount: parseFloat(valor),
+      totalSpend: 0,
+      totalItem: 0,
+      createdBy: "user@example.com",
+      icon: emojiIcon,
+      category: categoria,
+    };
 
-    if (result) {
-      refreshData();
-      toast("Novo orçamento criado!");
-    }
+    // Obtém os orçamentos existentes do localStorage
+    const budgets = JSON.parse(localStorage.getItem('budgets')) || [];
+
+    // Adiciona o novo orçamento à lista existente
+    budgets.push(newBudget);
+
+    // Salva a lista atualizada no localStorage
+    localStorage.setItem('budgets', JSON.stringify(budgets));
+
+    // Atualiza a lista de orçamentos na interface do usuário
+    refreshData();
+
+    // Exibe uma mensagem de sucesso
+    toast("Novo orçamento criado!");
+
+    // Limpa os campos de entrada
+    setNome("");
+    setValor("");
+    setCategoria("");
   };
 
   return (
@@ -90,6 +105,7 @@ function CreateBudget({ refreshData }) {
                   <h2 className="text-black font-medium my-1">Nome do Orçamento</h2>
                   <Input
                     placeholder="ex: Decoração da Casa"
+                    value={nome}
                     onChange={(e) => setNome(e.target.value)}
                   />
                 </div>
@@ -98,6 +114,7 @@ function CreateBudget({ refreshData }) {
                   <Input
                     type="number"
                     placeholder="ex: 5000 R$"
+                    value={valor}
                     onChange={(e) => setValor(e.target.value)}
                   />
                 </div>
