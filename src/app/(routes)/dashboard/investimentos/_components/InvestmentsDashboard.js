@@ -21,8 +21,8 @@ export default function InvestmentsDashboard({ data }) {
       <div className={styles.dashboardContainer}>
         
         <div className={styles.header}>
-        <h2 className="titulo">Investimentos</h2>
-          <NewInvestmentButton />
+        <h2 className='font-bold text-3xl'>Meus Investimentos</h2>
+        <NewInvestmentButton />
         </div>
         <div className={styles.content}>
           <div className={styles.leftPane}>
