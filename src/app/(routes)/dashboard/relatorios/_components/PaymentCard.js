@@ -70,7 +70,6 @@ const styles = {
     fontSize: '1.5rem',
     fontWeight: 'regular',
     color: '#333',
-    fontFamily: "'Poppins', sans-serif",
   },
   paymentRow: {
     display: 'flex',
@@ -81,21 +80,18 @@ const styles = {
   description: {
     flex: '2',
     fontSize: '1rem',
-    fontFamily: "'Poppins', sans-serif",
     color: '#333',
   },
   date: {
     flex: '1',
     textAlign: 'right',
     fontSize: '1rem',
-    fontFamily: "'Poppins', sans-serif",
     color: '#888',
   },
   value: {
     flex: '1',
     textAlign: 'right',
     fontSize: '1rem',
-    fontFamily: "'Poppins', sans-serif",
     color: '#000',
   },
   buttons: {

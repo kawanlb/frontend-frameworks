@@ -78,7 +78,7 @@ const styles = {
     fontSize: '1.5rem',
     fontWeight: 'regular',
     color: '#333',
-    fontFamily: "'Poppins', sans-serif",
+    // fontFamily: "'Poppins', sans-serif",
   },
 }
 

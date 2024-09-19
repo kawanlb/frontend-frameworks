@@ -1,5 +1,3 @@
-"use client";
-
 import { Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -81,15 +79,17 @@ function LineChart() {
     plugins: {
       legend: {
         display: true,
-        position: "top",
-        align: "start",
+        position: "bottom",
+        align: "end",
         labels: {
           usePointStyle: true,
-          pointStyle: "circle"
+          pointStyle: "circle",
+          padding: 20,
         },
       },
     },
     responsive: true,
+    maintainAspectRatio: false,
     layout: {
       padding: {
         top: 20,
@@ -118,7 +118,7 @@ function LineChart() {
   };
 
   return (
-    <div style={{ padding: "20px", width: "80vw" }}>
+    <div style={{ padding: "20px", width: "80vw", height: "40vw" }}>
       <h2 style={styles.title}>
         Entradas e Saídas
       </h2>
@@ -134,7 +134,7 @@ const styles = {
     fontSize: '1.5rem',
     fontWeight: 'regular',
     color: '#333',
-    fontFamily: "'Poppins', sans-serif",
+    marginBottom: '20px',
   },
 }
 

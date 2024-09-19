@@ -1,14 +1,15 @@
-.container {
+/* .container {
     display: flex;
     height: 100vh; 
-}
+} */
 
 
 .mainContent {
-    height: 100%;
+    height: 100vh;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
+    
 }
 
 .heading {
@@ -25,6 +26,8 @@
     border-radius: 28px;
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
     z-index: 1;
+    min-height: 250px;
+    max-height: 300px;
 }
 
 .summarySection {
@@ -39,7 +42,6 @@
 .gastosPorCategoria,
 .pagamentosEmAtraso {
     width: 100%;
-    margin-bottom: 20px;
     background-color: #fff;
     padding: 34px;
     border-radius: 28px;

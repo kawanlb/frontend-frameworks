@@ -16,12 +16,12 @@ export default function Reports() {
         <meta name="description" content="Reports page from Organiza" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <div className={styles.container}>
 
-        <div className={styles.mainContent}>
+
+        <div className={styles.mainContent} style={{ height: "100%" }}>
           <h1 className={styles.heading}>Relatórios</h1>
 
-          <div className={styles.chartSection}>
+          <div className={styles.chartSection} style={{ width: "100%" }}>
             <LineChart />
           </div>
 
@@ -35,7 +35,6 @@ export default function Reports() {
             </div>
           </div>
         </div>
-      </div>
     </>
   );
 }
