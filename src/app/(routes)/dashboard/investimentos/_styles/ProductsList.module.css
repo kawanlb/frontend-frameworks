@@ -1,0 +1,70 @@
+.productsList {
+  background-color: #FFFFFF; 
+  border-radius: 8px; 
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  max-width: 100%; 
+  margin-bottom: 20px;
+}
+
+.productsList h3 {
+  font-size: 1.20rem;
+  margin-bottom: 10px;
+  color: #333; 
+}
+.editButton , .deleteButton  {
+  margin-left: 0.8rem;
+}
+
+.productItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #dee2e6; 
+}
+
+.productItem:last-child {
+  border-bottom: none; 
+}
+
+.productItem span {
+  flex: 1;
+  font-size: 0.9rem;
+  color: #495057; 
+}
+
+.productItem .progress {
+  width: 100%; 
+  margin-left: 16px;
+  height: 20px; /* Aumentar a altura do ProgressBar */
+}
+
+.productValue {
+  text-align: right; /* Garantir que o valor fique alinhado à direita */
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .productsList {
+    padding: 12px;
+  }
+
+  .productsList h3 {
+    font-size: 1rem;
+  }
+
+  .productItem span {
+    font-size: 0.875rem;
+  }
+
+  .productItem .progress {
+    width: 55%;
+  }
+
+  .productValue {
+    font-size: 0.875rem;
+  }
+}

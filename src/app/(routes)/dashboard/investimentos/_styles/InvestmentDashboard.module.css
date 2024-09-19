@@ -1,0 +1,57 @@
+.dashboardContainer {
+  display: flex;
+  flex-direction: column;
+  padding-left: 2rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+
+.leftPane {
+  flex: 3; /* Para a lista de produtos ocupar 3 partes */
+}
+
+.rightPane {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.statsAndChart {
+  display: flex;
+  flex-direction: column;
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 768px) {
+  .content {
+    flex-direction: row;
+  }
+
+  .statsAndChart {
+    flex-direction: column;
+  }
+
+  .stats {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .chartContainer {
+    flex-grow: 1;
+  }
+}

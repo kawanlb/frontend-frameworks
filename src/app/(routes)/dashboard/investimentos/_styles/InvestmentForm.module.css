@@ -1,0 +1,79 @@
+.formContainer {
+  padding: 2rem;
+}
+
+.formLabel {
+  color: #344054;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 3fr 3fr 3fr;
+  grid-gap: 2rem;
+}
+
+.fullWidth {
+  grid-column: span 2;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputContainer input,
+.textarea,
+.select {
+  width: 100%;
+  padding: 0.3rem;
+  border: 1px solid #ccc;
+  color: #344054;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+}
+
+.textarea {
+  height: 5rem;
+}
+
+.saveButton{
+  color: #F9FAFB;
+  background-color: #5E64F2;
+  padding: 1rem;
+  border-radius: 5px;
+}
+.cancelButton{
+  background-color: #475467;
+  padding: 1rem;
+  color: #F9FAFB;
+  border-radius: 5px;
+}
+.buttonContainer {
+  display: flex;
+  width: 100%;
+  justify-content: end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.checkboxContainer {
+  display: flex;
+  align-items: center;
+}
+
+.checkboxContainer label {
+  margin-left: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .fullWidth {
+    grid-column: span 1;
+  }
+}
