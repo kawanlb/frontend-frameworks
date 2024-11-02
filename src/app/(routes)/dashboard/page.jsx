@@ -1,22 +1,13 @@
-"use client"
+import React from 'react';
+import UserProfile from './_components/UserProfile';
 
-import React, { useEffect, useState } from "react";
-import { checkAuthentication } from "../../../api/VerifyAuth"; // Importa o authGuard
-
-export default function Dashboard() {
-
-  useEffect(() => {
-    const authenticateUser = async () => {
-      await checkAuthentication(); // Verifica se o usuário está autenticado
-    };
-
-    authenticateUser(); // Chama a função para verificar a autenticação ao montar o componente
-  }, []);
-
-  // Se o usuário estiver autenticado, exibe o dashboard
+const Dashboard = () => {
   return (
     <div>
-      <h1>Bem-vindo ao dashboard</h1>
+      <h1>Dashboard</h1>
+      <UserProfile />
     </div>
   );
-}
+};
+
+export default Dashboard;

@@ -1,6 +1,6 @@
   "use client";
   import { useState } from "react";
-  import axiosInstance from "../../../api/AxiosInstance"; // Certifique-se de que o caminho está correto
+  import axiosInstance from "@/api/AxiosInstance";
   import InputField from "./InputField";
   import Button from "./Button";
   import CustomLink from "./Link";
@@ -9,7 +9,7 @@
   export default function SigninForm() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [error, setError] = useState(null); // Para gerenciar erros
+    const [error, setError] = useState(null); 
 
     const handleSubmit = async (e) => {
       e.preventDefault();
