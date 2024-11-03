@@ -5,9 +5,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 function Header() {
-  // Removido o uso do Clerk, agora você pode substituir por lógica própria de autenticação.
-  const user = null; // Defina a lógica para o usuário autenticado
-  const isSignedIn = false; // Controle o estado de autenticação aqui
+  const isSignedIn = false; 
 
   return (
     <div className="p-3 flex justify-between items-center border shadow-sm">
@@ -22,17 +20,13 @@ function Header() {
           </Button>
         </Link>
         {!isSignedIn && (
-          <Link href={"/sign-in"}>
+          <Link href={"/sign-up"}>
             <Button className="rounded-full text-sm py-1 px-3">
               Crie sua conta
             </Button>
           </Link>
         )}
-        {isSignedIn && (
-          <Button className="rounded-full text-sm py-1 px-3">
-            Bem-vindo, {user?.name || "Usuário"} {/* Lógica de exibição do nome */}
-          </Button>
-        )}
+        
       </div>
     </div>
   );
