@@ -1,15 +1,15 @@
 import axios from 'axios';
 
-// Configurar a instância do axios
 const axiosInstance = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json',
   },
+  withCredentials: true,
 });
 
-// Adicionar um interceptor de requisição para incluir o token JWT
+
 axiosInstance.interceptors.request.use((config) => {
   const token = document.cookie
     .split('; ')
@@ -25,7 +25,6 @@ axiosInstance.interceptors.request.use((config) => {
   return Promise.reject(error);
 });
 
-// Adicionar interceptores de resposta
 axiosInstance.interceptors.response.use(
   (response) => {
     return response;
