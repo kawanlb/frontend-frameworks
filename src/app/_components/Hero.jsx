@@ -49,7 +49,7 @@ const Hero = () => {
       <div className="flex-1 flex items-center justify-center md:my-0 my-10 relative">
         <img src="/hero-sideimage.png" alt="controle-financeiro" className="w-full h-full relative z-10" />
 
-        {/* Remoção do gradiente branco */}
+        {/*gradiente da imagem da direita*/}
         <div className={`absolute z-0 w-1/3 h-1/4 top-0 ${pinkGradient}`} />
         <div className={`absolute z-0 w-1/2 h-1/2 right-5 bottom-5 ${blueGradient}`} />
       </div>
