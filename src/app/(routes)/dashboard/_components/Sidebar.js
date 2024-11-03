@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { NavItems } from './NavItens';
+import UserComponent from './UserComponent';
 
 export default function Sidebar({ onToggle }) {
   const navItems = NavItems();
@@ -14,7 +15,7 @@ export default function Sidebar({ onToggle }) {
       const saved = window.localStorage.getItem('sidebarVisible');
       return saved === null ? true : JSON.parse(saved);
     }
-    return true; // estado padrão se window não estiver definido
+    return true; 
   });
 
   useEffect(() => {
@@ -30,7 +31,7 @@ export default function Sidebar({ onToggle }) {
 
   return (
     <div
-      className={`fixed top-0 left-0 h-screen bg-white border-r shadow-sm transition-all duration-100 ease-in-out ${isSidebarVisible ? 'w-64' : 'w-16'} z-30`}
+      className={`fixed top-0 left-0 h-screen bg-white border-r shadow-sm transition-all duration-100 ease-in-out ${isSidebarVisible ? 'w-48' : 'w-16'} z-30`}
     >
       <div className="flex items-center justify-between mb-5 p-2">
         {isSidebarVisible && (
@@ -54,14 +55,14 @@ export default function Sidebar({ onToggle }) {
           )}
         </button>
       </div>
-      <div>
-        {navItems.map((item) => (
+      <div className={isSidebarVisible ? 'px-3' : 'px-1'}>
+      {navItems.map((item) => (
           <TooltipProvider key={item.name} delayDuration={70}>
             <Tooltip>
               <TooltipTrigger>
                 <Link href={item.href}>
                   <div
-                    className={`flex items-center gap-2 p-4 cursor-pointer rounded-full hover:bg-blue-100 ${
+                    className={`flex items-center gap-2 p-4 cursor-pointer rounded-full hover:bg-purple-100 ${
                       isSidebarVisible ? 'block' : 'justify-center'
                     }`}
                   >
@@ -79,9 +80,13 @@ export default function Sidebar({ onToggle }) {
           </TooltipProvider>
         ))}
       </div>
-      <div className="absolute bottom-10 left-0 w-full flex justify-center">
-        {isSidebarVisible && <span>Minha conta</span>}
-      </div>
+      <div className="absolute bottom-11 left-0 w-full flex items-center justify-center">
+      <div className={`flex items-center ${isSidebarVisible ? 'justify-start pl-4' : 'justify-center'}`}>
+    <UserComponent />
+    {isSidebarVisible && <span className="ml-2">Minha conta</span>}
+  </div>
+</div>
+
     </div>
   );
 }

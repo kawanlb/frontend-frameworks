@@ -1,22 +1,20 @@
-"use client"
+'use client'
 
-import React, { useEffect, useState } from "react";
-import { checkAuthentication } from "../../../api/VerifyAuth"; // Importa o authGuard
-
-export default function Dashboard() {
-
-  useEffect(() => {
-    const authenticateUser = async () => {
-      await checkAuthentication(); // Verifica se o usuário está autenticado
-    };
-
-    authenticateUser(); // Chama a função para verificar a autenticação ao montar o componente
-  }, []);
-
-  // Se o usuário estiver autenticado, exibe o dashboard
+import React from 'react'
+import DoughnutChart from './relatorios/_components/DoughnutChart';
+import styles from '@/app/(routes)/dashboard/relatorios/_styles/Reports.module.css';
+import InvestmentChart from './investimentos/_components/InvestimentChart';
+function Dashboard() {
   return (
-    <div>
-      <h1>Bem-vindo ao dashboard</h1>
+    <div className='p-4'>
+      <h2 className='font-bold text-3xl'>Dashboard</h2>
+  
+      <div className={styles.gastosPorCategoria}>
+        <DoughnutChart />
+      </div>  
     </div>
-  );
+
+  )
 }
+
+export default Dashboard;
