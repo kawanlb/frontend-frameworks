@@ -3,7 +3,7 @@ import { useState } from "react";
 import InputField from "./InputField";
 import Button from "./Button";
 import CustomLink from "./Link";
-import FormContainer from "./FormContainer"; // Importa o FormContainer
+import FormContainer from "./FormContainer"; 
 
 export default function ForgotPasswordForm() {
   const [email, setEmail] = useState('');
@@ -14,7 +14,7 @@ export default function ForgotPasswordForm() {
   };
 
   return (
-    <FormContainer> {/* Usa o FormContainer diretamente */}
+    <FormContainer>
       <div className="max-w-md mx-auto px-4 py-6">
         <h1 className="text-3xl font-bold text-gray-900 sm:text-4xl">
           Esqueceu sua senha?
