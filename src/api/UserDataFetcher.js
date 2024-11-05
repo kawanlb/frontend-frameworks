@@ -1,4 +1,4 @@
-// UserDataFetcher.js
+
 'use client';
 
 import React, { useEffect, useState } from 'react';
@@ -19,16 +19,16 @@ const UserDataFetcher = ({ onDataFetch }) => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const token = CookieManager.getCookie('authToken'); // Obtém o token do cookie
-        const decodedToken = parseJwt(token); // Decifra o token
-        const userId = decodedToken?.id; // Obtém o ID do usuário
+        const token = CookieManager.getCookie('authToken'); 
+        const decodedToken = parseJwt(token); 
+        const userId = decodedToken?.id; 
 
         if (!userId) {
           throw new Error('ID do usuário não encontrado no token');
         }
 
-        const response = await axiosInstance.get(`/users/${userId}`); // Faz a requisição para obter os dados do usuário
-        onDataFetch(response.data); // Chama a função callback com os dados do usuário
+        const response = await axiosInstance.get(`/users/${userId}`); 
+        onDataFetch(response.data); 
       } catch (err) {
         setError(err.message);
       } finally {
@@ -47,7 +47,7 @@ const UserDataFetcher = ({ onDataFetch }) => {
     return <div>Error: {error}</div>;
   }
 
-  return null; // Não renderiza nada se não houver loading ou erro
+  return null; 
 };
 
 export default UserDataFetcher;
