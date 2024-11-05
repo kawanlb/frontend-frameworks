@@ -1,1 +1,0 @@
-npx prisma db pull - puxar as tabelas do banco de dados para o /prisma/schema.prisma
