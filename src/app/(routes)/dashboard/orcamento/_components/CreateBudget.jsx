@@ -34,9 +34,9 @@ function CreateBudget({ refreshData }) {
    * Usado para criar novo orçamento
    */
   const onCreateBudget = () => {
-    // Cria um novo orçamento
+    
     const newBudget = {
-      id: Date.now(), // Usar timestamp como ID único
+      id: Date.now(), 
       name: nome,
       amount: parseFloat(valor),
       totalSpend: 0,
@@ -46,22 +46,22 @@ function CreateBudget({ refreshData }) {
       category: categoria,
     };
 
-    // Obtém os orçamentos existentes do localStorage
+    
     const budgets = JSON.parse(localStorage.getItem('budgets')) || [];
 
-    // Adiciona o novo orçamento à lista existente
+    
     budgets.push(newBudget);
 
-    // Salva a lista atualizada no localStorage
+    
     localStorage.setItem('budgets', JSON.stringify(budgets));
 
-    // Atualiza a lista de orçamentos na interface do usuário
+    
     refreshData();
 
-    // Exibe uma mensagem de sucesso
+    
     toast("Novo orçamento criado!");
 
-    // Limpa os campos de entrada
+    
     setNome("");
     setValor("");
     setCategoria("");
