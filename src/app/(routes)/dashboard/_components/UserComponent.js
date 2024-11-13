@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation';
 import CookieManager from '@/api/CookieManager'; 
 import UserDataFetcher from '@/api/UserDataFetcher'; 
 
-const UserComponent = () => {
+const UserComponent = ({ isVisible = true }) => {
   const router = useRouter();
   const [user, setUser] = useState(null); 
 
@@ -22,20 +22,20 @@ const UserComponent = () => {
   };
 
   const handleNotifications = () => {
-    router.push('/notificacoes que nao tem fazer oq ne meus amores'); 
+    router.push('/notifications'); 
   };
 
   return (
-    <div className="flex items-center">
+    <div className={`flex items-center ${isVisible ? 'gap-2' : ''}`}>
       <UserDataFetcher onDataFetch={setUser} />
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <div className="flex items-center cursor-pointer">
-            <Avatar className="mr-2">
+            <Avatar>
               <AvatarImage src="avatar.png" alt="User Avatar" />
               <AvatarFallback>{user?.name ? user.name.charAt(0) : "U"}</AvatarFallback>
             </Avatar>
-            {user && <span className="text-gray-700">{user.name}</span>}
+            {isVisible && user && <span className="text-gray-700 p-4">{user.name}</span>}
           </div>
         </DropdownMenuTrigger>
 

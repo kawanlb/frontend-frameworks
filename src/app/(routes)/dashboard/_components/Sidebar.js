@@ -81,8 +81,9 @@ export default function Sidebar({ onToggle }) {
         ))}
       </div>
       <div className="absolute bottom-11 left-0 w-full flex items-center justify-center">
-        <UserComponent /> 
-      </div>
+  <UserComponent isVisible={isSidebarVisible} />
+</div>
+
     </div>
   );
 }
