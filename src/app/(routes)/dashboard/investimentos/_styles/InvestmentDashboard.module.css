@@ -1,57 +1,53 @@
 .dashboardContainer {
   display: flex;
   flex-direction: column;
-  padding-left: 2rem;
+  padding: 1rem;
+  gap: 1rem;
+  overflow-y: auto;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 .content {
   display: flex;
-  flex-direction: row;
-  gap: 2rem;
+  flex-direction: column; /* Altera para coluna em telas menores */
+  gap: 1rem;
 }
 
-.leftPane {
-  flex: 3; /* Para a lista de produtos ocupar 3 partes */
-}
-
-.rightPane {
+.leftPane, .rightPane {
   flex: 1;
-  display: flex;
-  flex-direction: column;
 }
 
-.statsAndChart {
-  display: flex;
-  flex-direction: column;
+.chartContainer {
+  margin-top: 1rem;
 }
 
-.stats {
-  display: flex;
-  flex-wrap: wrap;
-}
-
+/* Estilos para telas maiores */
 @media (min-width: 768px) {
   .content {
-    flex-direction: row;
+    flex-direction: row; /* Layout lado a lado */
   }
 
-  .statsAndChart {
+  .leftPane {
+    flex: 3;
+  }
+
+  .rightPane {
+    flex: 1;
+    display: flex;
     flex-direction: column;
+    gap: 1rem;
   }
+}
 
-  .stats {
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .chartContainer {
-    flex-grow: 1;
+@media (max-width: 768px) {
+  .statsCard {
+    margin-bottom: 1rem; /* Adicione espaço entre os cards */
   }
 }
