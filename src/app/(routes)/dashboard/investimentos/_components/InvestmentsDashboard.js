@@ -18,7 +18,7 @@ export default function InvestmentsDashboard({ data }) {
   return (
     <>
       
-      <div className={styles.dashboardContainer}>
+      <div className={`${styles.dashboardContainer} overflow-x-auto`}>
         
         <div className={styles.header}>
         <h2 className='font-bold text-3xl'>Meus Investimentos</h2>
