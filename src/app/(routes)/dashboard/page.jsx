@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import StatsCard from './investimentos/_components/StatsCard';
 import BudgetList from './orcamento/_components/BudgetList'; 
-import UserDataFetcher from '@/api//UserDataFetcher'; 
+import UserDataFetcher from '@/api/UserDataFetcher'; 
 
 function Dashboard() {
   const [userName, setUserName] = useState(null); 
@@ -30,37 +30,36 @@ function Dashboard() {
         <p className="text-lg mt-2">Aqui está o resumo das suas finanças e orçamentos para hoje.</p>
       </div>
 
-      {/* Cards principais */}
+      {/* Cards principais (Investimentos) */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        {/* Investment Stats Cards */}
-        <div className="bg-white p-4 rounded shadow-lg grid grid-cols-1 gap-4">
-          <StatsCard title="Total Investido" value={`R$ ${totalInvestido.toFixed(2)}`} icon="invest" />
-          <StatsCard title="Total Ganho" value={`R$ ${totalGanho.toFixed(2)}`} icon="money" />
-        </div>
-
-        {/* Budget List */}
+        {/* Investment Stats Cards side by side */}
         <div className="bg-white p-4 rounded shadow-lg">
-          <h3 className="font-bold text-xl mb-4">Orçamentos</h3>
-          <BudgetList showActions={false} /> 
-
+          <StatsCard title="Total Investido" value={`R$ ${totalInvestido.toFixed(2)}`} icon="invest" />
+        </div>
+        <div className="bg-white p-4 rounded shadow-lg">
+          <StatsCard title="Total Ganho" value={`R$ ${totalGanho.toFixed(2)}`} icon="money" />
         </div>
       </div>
 
+      {/* Budget List */}
+      <div className="bg-white p-4 rounded shadow-lg mb-6">
+        <BudgetList showActions={false} />
+      </div>
+
       <div className="mt-8 bg-white p-4 rounded shadow-lg">
-  <h3 className="font-bold text-xl mb-4">Atualizações Recentes</h3>
-  <ul className="list-disc pl-5">
-    <li>Seu rendimento de investimentos subiu 5% esta semana!</li>
-    <li>Um novo orçamento foi criado na categoria &#39;Alimentação&#39;.</li>
-    <li>Você atingiu 80% do limite no orçamento de &#39;Lazer&#39;.</li>
-  </ul>
-</div>
+        <h3 className="font-bold text-xl mb-4">Atualizações Recentes</h3>
+        <ul className="list-disc pl-5">
+          <li>Seu rendimento de investimentos subiu 5% esta semana!</li>
+          <li>Um novo orçamento foi criado na categoria &#39;Alimentação&#39;.</li>
+          <li>Você atingiu 80% do limite no orçamento de &#39;Lazer&#39;.</li>
+        </ul>
+      </div>
 
-<div className="mt-4 bg-white p-4 rounded shadow-lg">
-  <p className="text-lg italic">
-    &quot;O sucesso financeiro é construído com pequenos passos consistentes. Continue investindo em seus sonhos!&quot;
-  </p>
-</div>
-
+      <div className="mt-4 bg-white p-4 rounded shadow-lg">
+        <p className="text-lg italic">
+          &quot;O sucesso financeiro é construído com pequenos passos consistentes. Continue investindo em seus sonhos!&quot;
+        </p>
+      </div>
     </div>
   );
 }
