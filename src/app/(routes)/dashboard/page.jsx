@@ -6,7 +6,7 @@ import BudgetList from './orcamento/_components/BudgetList';
 import UserDataFetcher from '@/api//UserDataFetcher'; 
 
 function Dashboard() {
-  const [userName, setUserName] = useState(null); // Estado para o nome do usuário
+  const [userName, setUserName] = useState(null); 
 
   const productsData = [
     { id: 1, tipo_investimento: 'Ações', instituicao: 'Banco A', valor_investido: 5000, rendimento: 200 },
@@ -18,10 +18,9 @@ function Dashboard() {
 
   return (
     <div className="p-4">
-      {/* Componente que busca dados do usuário */}
       <UserDataFetcher
         onDataFetch={(data) => {
-          setUserName(data.name); // Configura o nome do usuário
+          setUserName(data.name); 
         }}
       />
 
@@ -42,12 +41,11 @@ function Dashboard() {
         {/* Budget List */}
         <div className="bg-white p-4 rounded shadow-lg">
           <h3 className="font-bold text-xl mb-4">Orçamentos</h3>
-          <BudgetList showActions={false} /> {/* Buttons hidden */}
+          <BudgetList showActions={false} /> 
 
         </div>
       </div>
 
-      {/* Atualizações e mensagens */}
       <div className="mt-8 bg-white p-4 rounded shadow-lg">
         <h3 className="font-bold text-xl mb-4">Atualizações Recentes</h3>
         <ul className="list-disc pl-5">
@@ -57,7 +55,6 @@ function Dashboard() {
         </ul>
       </div>
 
-      {/* Mensagem de motivação */}
       <div className="mt-4 bg-white p-4 rounded shadow-lg">
         <p className="text-lg italic">"O sucesso financeiro é construído com pequenos passos consistentes. Continue investindo em seus sonhos!"</p>
       </div>
