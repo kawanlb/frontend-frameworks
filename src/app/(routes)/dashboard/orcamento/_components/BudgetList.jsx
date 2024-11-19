@@ -10,15 +10,14 @@ const getBudgetsFromLocalStorage = () => {
   return budgets ? JSON.parse(budgets) : [];
 };
 
-function BudgetList() {
+function BudgetList({ showActions = true }) {
   const [budgetList, setBudgetList] = useState([]);
 
   const refreshData = () => {
-    setBudgetList(getBudgetsFromLocalStorage()); 
+    setBudgetList(getBudgetsFromLocalStorage());
   };
 
   useEffect(() => {
-    
     refreshData();
   }, []);
 
@@ -28,7 +27,12 @@ function BudgetList() {
         <CreateBudget refreshData={refreshData} />
         {budgetList.length > 0 &&
           budgetList.map((budget) => (
-            <BudgetItem budget={budget} key={budget.id} refreshData={refreshData} />
+            <BudgetItem
+              budget={budget}
+              key={budget.id}
+              refreshData={refreshData}
+              showActions={showActions} // Pass showActions prop
+            />
           ))}
       </div>
     </div>
