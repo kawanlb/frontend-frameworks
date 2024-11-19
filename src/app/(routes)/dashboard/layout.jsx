@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { AuthProvider } from "@/context/authContext"; 
 import Sidebar from "./_components/Sidebar";
+import "../styles/globals.css";
 
 export default function DashboardLayout({ children }) {
   const [isSidebarVisible, setIsSidebarVisible] = useState(true);
