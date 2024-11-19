@@ -47,17 +47,20 @@ function Dashboard() {
       </div>
 
       <div className="mt-8 bg-white p-4 rounded shadow-lg">
-        <h3 className="font-bold text-xl mb-4">Atualizações Recentes</h3>
-        <ul className="list-disc pl-5">
-          <li>Seu rendimento de investimentos subiu 5% esta semana!</li>
-          <li>Um novo orçamento foi criado na categoria "Alimentação".</li>
-          <li>Você atingiu 80% do limite no orçamento de "Lazer".</li>
-        </ul>
-      </div>
+  <h3 className="font-bold text-xl mb-4">Atualizações Recentes</h3>
+  <ul className="list-disc pl-5">
+    <li>Seu rendimento de investimentos subiu 5% esta semana!</li>
+    <li>Um novo orçamento foi criado na categoria &#39;Alimentação&#39;.</li>
+    <li>Você atingiu 80% do limite no orçamento de &#39;Lazer&#39;.</li>
+  </ul>
+</div>
 
-      <div className="mt-4 bg-white p-4 rounded shadow-lg">
-        <p className="text-lg italic">"O sucesso financeiro é construído com pequenos passos consistentes. Continue investindo em seus sonhos!"</p>
-      </div>
+<div className="mt-4 bg-white p-4 rounded shadow-lg">
+  <p className="text-lg italic">
+    &quot;O sucesso financeiro é construído com pequenos passos consistentes. Continue investindo em seus sonhos!&quot;
+  </p>
+</div>
+
     </div>
   );
 }
