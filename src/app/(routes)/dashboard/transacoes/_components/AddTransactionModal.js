@@ -27,10 +27,11 @@ const AddTransactionModal = ({ open, onClose, onSave }) => {
           top: '50%',
           left: '50%',
           transform: 'translate(-50%, -50%)',
-          padding: '32px',
+          padding: '16px',
           bgcolor: 'background.paper',
           boxShadow: 24,
-          borderRadius: '8px'
+          borderRadius: '8px',
+          width: { xs: '90%', sm: '400px' } // Responsividade
         }}
       >
         <Typography variant="h6" marginBottom={2}>Adicionar Transação</Typography>
@@ -78,6 +79,7 @@ const AddTransactionModal = ({ open, onClose, onSave }) => {
           variant="contained" 
           sx={{ mt: 2 }} 
           onClick={handleSubmit}
+          fullWidth
         >
           Salvar
         </Button>
