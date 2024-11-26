@@ -4,12 +4,18 @@ import '../_styles/StatusIcon.module.css';
 
 function StatusIcon({ category }) {
   let icon;
-  if (category === 'Mercado') {
-    icon = <FaShoppingCart className="icon mercado" />;
-  } else if (category === 'Eletrônicos') {
-    icon = <FaLaptop className="icon eletronicos" />;
-  } else if (category === 'Trabalho') {
-    icon = <FaBriefcase className="icon trabalho" />;
+  switch (category) {
+    case 'Mercado':
+      icon = <FaShoppingCart className="icon mercado" />;
+      break;
+    case 'Eletrônicos':
+      icon = <FaLaptop className="icon eletronicos" />;
+      break;
+    case 'Trabalho':
+      icon = <FaBriefcase className="icon trabalho" />;
+      break;
+    default:
+      icon = null;
   }
 
   return <div>{icon}</div>;
