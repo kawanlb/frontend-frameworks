@@ -7,7 +7,7 @@ const BalanceCard = ({ transactions }) => {
   }, 0);
 
   return (
-    <Paper sx={{ padding: '16px', backgroundColor: '#f4f4f4', borderRadius: '8px' }}>
+    <Paper sx={{ padding: '16px', backgroundColor: '#f4f4f4', borderRadius: '8px', width: '100%' }}>
       <Typography variant="h6">Balanço mensal</Typography>
       <Typography variant="h4" sx={{ color: balance >= 0 ? 'green' : 'red' }}>
         {balance.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}

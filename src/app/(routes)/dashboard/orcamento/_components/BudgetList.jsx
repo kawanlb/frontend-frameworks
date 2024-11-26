@@ -4,21 +4,20 @@ import React, { useEffect, useState } from "react";
 import CreateBudget from "./CreateBudget";
 import BudgetItem from "./BudgetItem";
 
-// Função para obter orçamentos do localStorage
+
 const getBudgetsFromLocalStorage = () => {
   const budgets = localStorage.getItem('budgets');
   return budgets ? JSON.parse(budgets) : [];
 };
 
-function BudgetList() {
+function BudgetList({ showActions = true }) {
   const [budgetList, setBudgetList] = useState([]);
 
   const refreshData = () => {
-    setBudgetList(getBudgetsFromLocalStorage()); // Atualiza com os dados do localStorage
+    setBudgetList(getBudgetsFromLocalStorage());
   };
 
   useEffect(() => {
-    // Carrega os dados do localStorage ao inicializar
     refreshData();
   }, []);
 
@@ -28,7 +27,12 @@ function BudgetList() {
         <CreateBudget refreshData={refreshData} />
         {budgetList.length > 0 &&
           budgetList.map((budget) => (
-            <BudgetItem budget={budget} key={budget.id} refreshData={refreshData} />
+            <BudgetItem
+              budget={budget}
+              key={budget.id}
+              refreshData={refreshData}
+              showActions={showActions} // Pass showActions prop
+            />
           ))}
       </div>
     </div>

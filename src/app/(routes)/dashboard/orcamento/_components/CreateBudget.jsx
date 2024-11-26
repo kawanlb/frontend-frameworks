@@ -21,6 +21,8 @@ import {
   SelectItem,
 } from "@/components/ui/select";
 import { toast } from "sonner";
+import { addNotification } from "../../_components/Notifications.utils";
+
 
 function CreateBudget({ refreshData }) {
   const [emojiIcon, setEmojiIcon] = useState("😀");
@@ -33,39 +35,35 @@ function CreateBudget({ refreshData }) {
   /**
    * Usado para criar novo orçamento
    */
-  const onCreateBudget = () => {
-    // Cria um novo orçamento
-    const newBudget = {
-      id: Date.now(), // Usar timestamp como ID único
-      name: nome,
-      amount: parseFloat(valor),
-      totalSpend: 0,
-      totalItem: 0,
-      createdBy: "user@example.com",
-      icon: emojiIcon,
-      category: categoria,
-    };
 
-    // Obtém os orçamentos existentes do localStorage
-    const budgets = JSON.parse(localStorage.getItem('budgets')) || [];
-
-    // Adiciona o novo orçamento à lista existente
-    budgets.push(newBudget);
-
-    // Salva a lista atualizada no localStorage
-    localStorage.setItem('budgets', JSON.stringify(budgets));
-
-    // Atualiza a lista de orçamentos na interface do usuário
-    refreshData();
-
-    // Exibe uma mensagem de sucesso
-    toast("Novo orçamento criado!");
-
-    // Limpa os campos de entrada
-    setNome("");
-    setValor("");
-    setCategoria("");
+// Criação de notificação ao criar orçamento
+const onCreateBudget = () => {
+  const newBudget = {
+    id: Date.now(),
+    name: nome,
+    amount: parseFloat(valor),
+    totalSpend: 0,
+    totalItem: 0,
+    createdBy: "user@example.com",
+    icon: emojiIcon,
+    category: categoria,
   };
+
+  const budgets = JSON.parse(localStorage.getItem("budgets")) || [];
+  budgets.push(newBudget);
+  localStorage.setItem("budgets", JSON.stringify(budgets));
+
+  // Cria a notificação
+  addNotification(`Orçamento "${nome}" criado com sucesso!`, "success");
+
+  refreshData();
+  toast("Novo orçamento criado!");
+  setNome("");
+  setValor("");
+  setCategoria("");
+};
+
+ 
 
   return (
     <div>

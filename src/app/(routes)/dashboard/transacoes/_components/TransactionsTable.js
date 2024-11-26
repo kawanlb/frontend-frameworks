@@ -11,21 +11,21 @@ const TransactionsTable = ({ transactions, onEdit, onDelete }) => {
   };
 
   return (
-    <TableContainer component={Paper} sx={{ marginBottom: '32px' }}>
-      <Table>
+    <TableContainer component={Paper} sx={{ marginBottom: '32px', overflowX: 'auto' }}>
+      <Table className="min-w-full">
         <TableHead>
           <TableRow>
-            <TableCell>Categoria</TableCell>
-            <TableCell>Data</TableCell>
-            <TableCell>Descrição</TableCell>
-            <TableCell>Status</TableCell>
-            <TableCell>Valor</TableCell>
-            <TableCell>Ações</TableCell>
+            <TableCell className="font-bold">Categoria</TableCell>
+            <TableCell className="font-bold">Data</TableCell>
+            <TableCell className="font-bold">Descrição</TableCell>
+            <TableCell className="font-bold">Status</TableCell>
+            <TableCell className="font-bold">Valor</TableCell>
+            <TableCell className="font-bold">Ações</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {transactions.map((transaction) => (
-            <TableRow key={transaction.id}>
+            <TableRow key={transaction.id} className="hover:bg-gray-100">
               <TableCell>{transaction.category}</TableCell>
               <TableCell>{new Date(transaction.date).toLocaleDateString()}</TableCell>
               <TableCell>{transaction.description}</TableCell>
@@ -34,13 +34,12 @@ const TransactionsTable = ({ transactions, onEdit, onDelete }) => {
                 {transaction.value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
               </TableCell>
               <TableCell>
-                <button  style={{ marginRight: '8px' }} onClick={() => onEdit(transaction)}>
-                  <img src="/edit.svg" alt="Editar" />
+                <button style={{ marginRight: '8px' }} onClick={() => onEdit(transaction)}>
+                  <img src="/edit.svg" alt="Editar" className="w-5 h-5" />
                 </button>
                 <button onClick={() => onDelete(transaction.id)}>
-                  <img src="/trash.svg" alt="Excluir" />
+                  <img src="/trash.svg" alt="Excluir" className="w-5 h-5" />
                 </button>
-                
               </TableCell>
             </TableRow>
           ))}

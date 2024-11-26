@@ -40,7 +40,7 @@ export default function Sidebar({ onToggle }) {
         <button
           onClick={toggleSidebar}
           className="p-2 rounded-full hover:bg-gray-100 transition-transform duration-150"
-          style={{ marginLeft: isSidebarVisible ? 'auto' : '0' }} // Alinha corretamente o botão com base no estado da sidebar
+          style={{ marginLeft: isSidebarVisible ? 'auto' : '0' }} 
         >
           {isSidebarVisible ? (
             <ChevronLeft
@@ -56,7 +56,7 @@ export default function Sidebar({ onToggle }) {
         </button>
       </div>
       <div className={isSidebarVisible ? 'px-3' : 'px-1'}>
-      {navItems.map((item) => (
+        {navItems.map((item) => (
           <TooltipProvider key={item.name} delayDuration={70}>
             <Tooltip>
               <TooltipTrigger>
@@ -81,10 +81,7 @@ export default function Sidebar({ onToggle }) {
         ))}
       </div>
       <div className="absolute bottom-11 left-0 w-full flex items-center justify-center">
-      <div className={`flex items-center ${isSidebarVisible ? 'justify-start pl-4' : 'justify-center'}`}>
-    <UserComponent />
-    {isSidebarVisible && <span className="ml-2">Minha conta</span>}
-  </div>
+  <UserComponent isVisible={isSidebarVisible} />
 </div>
 
     </div>
